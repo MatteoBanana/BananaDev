@@ -1,0 +1,334 @@
+/* Bootstrap theme customized with Pinegrow Web Editor */
+/* Vars go before the @import */
+$grey-blue: #343644;
+$primary: $grey-blue;
+$banana-yellow: #FBD629;
+$secondary: $banana-yellow;
+$font-family-sans-serif: "norms";
+$spacer: 1rem;
+
+
+/* Import the Bootstrap files */
+@import "bootstrap/bootstrap";
+
+@font-face {
+    font-family: 'normsbold';
+    src: url('font/TTNorms/ttnorms-bold-webfont.woff2') format('woff2'),
+         url('font/TTNorms/ttnorms-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'norms';
+    src: url('../../font/TTNorms/ttnorms-regular-webfont.woff2') format('woff2'),
+         url('../../font/TTNorms/ttnorms-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* -----
+Custom CSS rules come here
+------ */
+
+h1 {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+a, a:hover{
+	text-decoration: none;
+}
+
+a{
+	color: #fff;
+	transition: all .2s ease-in-out;
+}
+
+a:hover{
+	color: #ffd700;
+}
+
+.page-title {
+  background-color: #fff;
+  width: 100%;
+  text-align: center;
+  z-index: 90;
+  padding: 1rem;
+
+  h1 {
+    margin: auto;
+    transform: translateY(30%);
+    @include media-breakpoint-up(md) {
+      transform: translateY(-30%);
+    }
+  }
+}
+
+/*------------------------------------
+Navbar toggler e navbar-collapse
+------------------------------------*/
+
+.navbar {
+  background: #fff;
+  width: 100%;
+  z-index: 99;
+  position: fixed;
+  @include media-breakpoint-up(md) {
+    background: transparent;
+  }
+}
+
+.navbar-toggler {
+  border: none;
+  font-size: 1rem;
+  z-index: 99;
+}
+
+.navbar-collapse {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background-color: $banana-yellow;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    ul.page-menu {
+      padding: 0;
+      li {
+        display: block;
+        margin: $spacer;
+        a {
+          font-size: 3rem;
+          font-weight: bold;
+        }
+      }
+    }
+
+    ul.social-menu {
+      padding: 0;
+      margin-top: $spacer*5;
+      li {
+        margin: $spacer;
+        a {
+          font-size: 1rem;
+          font-weight: bold;
+        }
+      }
+    }
+}
+
+/*-------------------
+Footer
+-------------------*/
+
+#footer-id {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    margin-top: auto;
+    color: #fff;
+    z-index: 99;
+    p {
+      color: white;
+    }
+}
+
+/*-------------------
+Style Sweep Right
+-------------------*/
+
+.animazione-sweep-right {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  padding: 10px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+
+  &:hover, &:focus, &:active {
+      text-decoration: none;
+  }
+
+  &:hover:before, &:focus:before, &:active:before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
+
+/* --------------------
+Stile bottone
+-------------------- */
+
+.btn-item{
+	position: relative;
+	display: inline;
+}
+
+.btn-item a{
+	position: relative;
+	z-index: 2;
+}
+
+.btn-item::after, .btn-item::before{
+	content:'';
+	position: absolute;
+	height: 0;
+	width: calc(100% + .4em);
+	left: -.2em;
+	transition: all .2s ease-in-out;
+}
+
+.btn-item::after{
+	background-color: #3a3a3a;
+	bottom: 0;
+}
+
+.btn-item::before{
+	background-color: #fff;
+	top: .5em;
+}
+
+.btn-item:hover::after, .btn-item:hover::before{
+	height: 100%;
+}
+
+/* --------------------
+Container immagini portfolio
+-------------------- */
+
+#portfolio {
+
+  .archive-item {
+    width: 100%;
+    position: relative;
+    padding: 0;
+
+    image {
+        position: absolute;
+    }
+
+    .giallo-overlay {
+      transition: .5s ease;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $banana-yellow;
+      mix-blend-mode: multiply;
+      opacity: 0;
+    }
+
+    .titolo-portfolio {
+      position: absolute;
+      bottom: 0;
+      left: 10%;
+      max-width: 80%;
+      opacity: 0;
+      transition: .3s ease;
+
+      a {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+    }
+
+    &:hover {
+      .giallo-overlay {
+        opacity: .9;
+      }
+
+      .titolo-portfolio {
+        opacity: 1;
+        bottom: 10%;
+      }
+    }
+  }
+}
+
+/*-----------------------
+Pagina progetto singolo
+-----------------------*/
+#project {
+  .archive-project {
+    width: 100%;
+    // position: relative;
+    padding: 0;
+  }
+  .call-to-action {
+    width: 100%;
+    background-color: $banana-yellow;
+    padding: 2rem;
+
+    .link-sito {
+      @include media-breakpoint-up(md) {
+        max-width: 70%;
+      }
+
+
+      a {
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 0 auto;
+      }
+    }
+  }
+  .descrizione-contenitore {
+      @include media-breakpoint-up(md) {
+        max-width: 70%;
+      }
+      padding: $spacer;
+      margin: $spacer*2 auto;
+
+      .descrizione-progetto {
+        padding: $spacer;
+        margin: 0 auto;
+      }
+  }
+}
+
+
+
+/*-----------------------
+Contatti
+-----------------------*/
+
+.contatti-container {
+  padding: $spacer;
+  margin: 12rem auto 0 auto;
+  .contatti-descrizione {
+    padding: $spacer;
+    margin: 0 auto;
+  }
+}

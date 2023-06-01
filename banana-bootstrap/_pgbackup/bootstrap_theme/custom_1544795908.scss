@@ -1,0 +1,426 @@
+/* Bootstrap theme customized with Pinegrow Web Editor */
+/* Vars go before the @import */
+$grey-blue: #343644;
+$primary: $grey-blue;
+$banana-yellow: #FBD629;
+$secondary: $banana-yellow;
+$font-family-sans-serif: "norms";
+$spacer: 1rem;
+
+/* Import the Bootstrap files */
+@import "bootstrap/bootstrap";
+
+@font-face {
+    font-family: 'normsbold';
+    src: url('font/TTNorms/ttnorms-bold-webfont.woff2') format('woff2'),
+         url('font/TTNorms/ttnorms-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'norms';
+    src: url('../../font/TTNorms/ttnorms-regular-webfont.woff2') format('woff2'),
+         url('../../font/TTNorms/ttnorms-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* -----
+Custom CSS rules come here
+------ */
+h1 {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+a {
+    color: $banana-yellow;
+    transition: all .2s ease-in-out;
+}
+
+a:hover {
+    color: #fff;
+}
+
+/*------------------------------------
+Titolo pagina
+------------------------------------*/
+.page-title {
+    background-color: transparent;
+    width: 100%;
+    text-align: center;
+    z-index: 90;
+    padding: $spacer;
+    position: absolute;
+
+    @include media-breakpoint-down(sm) {
+        background-color: white;
+        position: absolute;
+        z-index: 99;
+    }
+
+    h1 {
+        margin: auto;
+        color: $primary;
+    }
+}
+
+/*------------------------------------
+Navbar toggler e navbar-collapse
+------------------------------------*/
+.navbar {
+    background: #fff;
+    width: 100%;
+    z-index: 99;
+    position: fixed;
+
+    @include media-breakpoint-up(md) {
+        background: transparent;
+    }
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1rem;
+    z-index: 99;
+}
+
+.navbar-collapse {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    ul.page-menu {
+        padding: 0;
+
+        li {
+            display: block;
+            margin: $spacer;
+            font-size: 3rem;
+
+            a {
+                font-weight: bold;
+            }
+
+            @include media-breakpoint-up(md) {
+                display: inline-block;
+            }
+        }
+    }
+
+    ul.social-menu {
+        padding: 0;
+        margin-top: $spacer*5;
+
+        li {
+            display: block;
+            margin: $spacer;
+
+            a {
+                font-size: 1rem;
+                font-weight: bold;
+            }
+
+            @include media-breakpoint-up(md) {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+/*-------------------
+Footer
+-------------------*/
+#footer-id {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    margin-top: auto;
+    color: #fff;
+    z-index: 99;
+
+    p {
+        color: white;
+    }
+}
+
+/* --------------------
+Stile bottone
+-------------------- */
+.btn-item {
+    position: relative;
+
+    // display: inline;
+    // height: 100%;
+}
+
+.btn-item a {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-item::after,
+.btn-item::before {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: calc(100% + .4em);
+    left: -.2em;
+    transition: all .2s ease-in-out;
+}
+
+.btn-item::after {
+    background-color: $primary;
+    bottom: -.15em;
+}
+
+.btn-item::before {
+    background-color: $banana-yellow;
+    top: 0;
+}
+
+.btn-item:hover::after,
+.btn-item:hover::before {
+    height: calc(100% + .4em);
+}
+
+/* --------------------
+Homepage
+-------------------- */
+#homepage {
+  .archive-item {
+    width: 100%;
+    position: relative;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    @include media-breakpoint-up(md) {
+      align-items: center;
+    }
+
+    .bg-banana {
+      position: absolute;
+      max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .3;
+      @include media-breakpoint-up(md) {
+        opacity: 1;
+      }
+    }
+
+    .img-fluid {
+      max-width: 100%;
+      height: auto;
+
+      @include media-breakpoint-down(md) {
+        object-fit: cover !important;
+        height: 100%;
+      }
+    }
+
+    .home-content {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include media-breakpoint-up(md) {
+        justify-content: space-around;
+      }
+      .logo-home {
+        z-index: 99;
+        img {
+          width: 150px;
+        }
+
+        h1 {
+          font-weight: bold;
+          padding-top: $spacer*2;
+        }
+      }
+      .menu-home {
+        a {
+          font-size: 2.5rem;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+/* --------------------
+Container immagini portfolio
+-------------------- */
+#portfolio {
+    .archive-item {
+        width: 100%;
+        position: relative;
+        padding: 0;
+
+        @include media-breakpoint-down(sm) {
+            height: 100Vw;
+        }
+
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+
+            @include media-breakpoint-down(md) {
+                object-fit: cover !important;
+                height: 100%;
+            }
+        }
+
+        .giallo-overlay {
+            transition: .5s ease;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $banana-yellow;
+            opacity: 0;
+        }
+
+        .titolo-portfolio {
+            position: absolute;
+            bottom: 10%;
+            left: 10%;
+            max-width: 80%;
+
+            a {
+                font-size: 1rem;
+
+                @include media-breakpoint-up(md) {
+                    font-size: 2rem;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+/*-----------------------
+Pagina progetto singolo
+-----------------------*/
+#project {
+    .archive-project {
+        width: 100%;
+
+        // position: relative;
+        padding: 0;
+    }
+
+    .call-to-action {
+        width: 100%;
+        background-color: #f2f2f2;
+        padding: 2rem;
+
+        .link-sito {
+            @include media-breakpoint-up(md) {
+                max-width: 70%;
+            }
+
+            a {
+                font-size: 2rem;
+                font-weight: bold;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .descrizione-contenitore {
+        @include media-breakpoint-up(md) {
+            max-width: 70%;
+        }
+
+        padding: $spacer;
+        margin: $spacer*2 auto;
+
+        .descrizione-progetto {
+            padding: $spacer;
+            margin: 0 auto;
+        }
+    }
+}
+
+/*-----------------------
+About
+-----------------------*/
+
+
+
+/*-----------------------
+Contatti
+-----------------------*/
+
+#contatti {
+  padding-top: $spacer*5;
+  @include media-breakpoint-up(md) {
+    padding-top: $spacer*10;
+  }
+  .container {
+    ul.social-menu {
+      padding: 0;
+      margin-top: $spacer;
+
+      li {
+        display: block;
+        // margin: $spacer;
+
+        a {
+          font-size: 1rem;
+          font-weight: bold;
+        }
+
+        @include media-breakpoint-up(md) {
+          display: inline-block;
+        }
+      }
+    }
+  }
+  .form-container {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+  .form-control {
+    color: $primary;
+    border: none;
+    border-bottom: 1px solid rgba(52, 54, 68, .5);
+    border-radius: 0px;
+    opacity: .5;
+  }
+  .form-control:focus {
+    color: $primary;
+    opacity: 1;
+    background-color: #fff;
+    border-bottom: 1px solid $primary;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 0;
+    box-shadow: 0 0 0 0;
+  }
+  .send {
+    margin-top: $spacer*2;
+    padding-left: $spacer;
+    // max-width: 35px;
+    a {
+
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+}
