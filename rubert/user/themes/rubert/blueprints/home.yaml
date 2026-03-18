@@ -1,0 +1,31 @@
+title: Homepage
+'@extends':
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        tab_content:
+          type: tab
+          title: Contenuto
+          fields:
+            header.hero_role:
+              type: text
+              label: Ruolo (hero footer)
+              placeholder: 'Art Director & Designer'
+            header.hero_studio:
+              type: text
+              label: Studio (hero footer)
+              placeholder: 'BananaStudio, Verona'
+            header.hero_status:
+              type: text
+              label: Stato disponibilità
+              placeholder: 'Disponibile ✦'
+            header.hero_tag:
+              type: text
+              label: Tag riga hero
+              placeholder: 'Art Director & Designer — Verona, IT'

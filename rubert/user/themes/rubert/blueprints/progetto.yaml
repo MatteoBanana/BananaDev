@@ -1,0 +1,50 @@
+title: Progetto
+'@extends':
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        tab_content:
+          type: tab
+          title: Contenuto
+          fields:
+            header.project_tags:
+              type: text
+              label: Categorie / Tag
+              placeholder: 'Brand · Grafica · Web Design'
+              help: 'Separati da ·'
+            header.project_year:
+              type: text
+              label: Anno
+              placeholder: '2024'
+            header.project_role:
+              type: text
+              label: Ruolo
+              placeholder: 'Art direction, design'
+            header.project_cover:
+              type: filepicker
+              label: Immagine di copertina
+              preview_images: true
+              accept:
+                - image/*
+            header.project_images:
+              type: list
+              label: Immagini galleria (max 4)
+              min: 1
+              max: 4
+              fields:
+                .src:
+                  type: filepicker
+                  label: Immagine
+                  preview_images: true
+                  accept:
+                    - image/*
+            header.project_external_url:
+              type: url
+              label: URL esterno progetto (opzionale)
+              placeholder: 'https://...'

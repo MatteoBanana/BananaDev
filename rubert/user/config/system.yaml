@@ -1,0 +1,21 @@
+home:
+  alias: /home
+
+pages:
+  theme: rubert
+  process:
+    markdown: true
+    twig: false
+  order:
+    by: folder
+    dir: asc
+
+cache:
+  enabled: true
+
+debugger:
+  enabled: false
+
+taxonomy:
+  - category
+  - tag

@@ -1,0 +1,60 @@
+name: Rubert
+version: 1.0.0
+description: Portfolio personale Matteo Rubert
+icon: paint-brush
+author:
+  name: Matteo Rubert
+  email: matteo@bananastudio.it
+  url: https://bananastudio.it
+homepage: https://bananastudio.it
+keywords: portfolio, design, art direction
+bugs: https://bananastudio.it
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.7.0' }
+
+form:
+  validation: loose
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        tab_settings:
+          type: tab
+          title: Impostazioni
+          fields:
+            emailjs_public_key:
+              type: text
+              label: EmailJS Public Key
+              placeholder: YOUR_PUBLIC_KEY
+            emailjs_service_id:
+              type: text
+              label: EmailJS Service ID
+              placeholder: YOUR_SERVICE_ID
+            emailjs_template_id:
+              type: text
+              label: EmailJS Template ID
+              placeholder: YOUR_TEMPLATE_ID
+            contact_email:
+              type: text
+              label: Email contatto
+              placeholder: matteo@bananastudio.it
+            contact_phone:
+              type: text
+              label: Telefono
+              placeholder: +39 000 000 0000
+            contact_studio:
+              type: text
+              label: Studio
+              placeholder: BananaStudio, Verona
+            instagram_url:
+              type: text
+              label: Instagram URL
+            linkedin_url:
+              type: text
+              label: LinkedIn URL
+            bananastudio_url:
+              type: text
+              label: BananaStudio URL
